@@ -1,0 +1,67 @@
+<body>
+  <div>
+    <table border:1px solid>
+    <tr>
+      <td colspan="4"><input type="text" id="result"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="AC" onclick="clr()"></td>
+      <td><input type="button" value="+/-" onclick="doMathAbs()"></td>
+      <td><input type="button" value="%" onclick="doMathPercent()"></td>
+      <td><input type="button" value=&divide onclick="inputItem('/')"></td>
+    </tr> 
+    <tr>
+      <td><input type="button" value="7" onclick="inputItem('7')"></td>
+      <td><input type="button" value="8" onclick="inputItem('8')"></td>
+      <td><input type="button" value="9" onclick="inputItem('9')"></td>
+      <td><input type="button" value="&times" onclick= "inputItem('*')"></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="4" onclick="inputItem('4')"></td>
+      <td><input type="button" value="5" onclick="inputItem('5')"></td>
+      <td><input type="button" value="6" onclick="inputItem('6')"></td>
+      <td><input type="button" value="-" onclick="inputItem('-')"></td>
+    </tr>
+    <tr>
+       <td><input type="button" value="1" onclick="inputItem('1')"></td>
+      <td><input type="button" value="2" onclick="inputItem('2')"></td>
+      <td><input type="button" value="3" onclick="inputItem('3')"></td>
+      <td><input type="button" value="+" onclick="inputItem('+')"></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="button" value="0" onclick="inputItem('0')"></td>
+      <td><input type="button" value="." onclick="inputItem('.')"></td>
+      <td><input type="button" value="=" onclick=
+                 "doCalculation()"></td>
+    </tr>
+    </table>
+  </div>
+<script>
+function clr(){
+   document.getElementById("result").value=null
+}
+
+var x;
+function inputItem(myVal){
+ x = document.getElementById("result").value+=myVal
+}
+
+function doMathAbs(){
+  x = -1*x
+  document.getElementById("result").value = x
+}
+
+function doMathPercent(){
+  x = x/100
+  document.getElementById("result").value = x
+}
+
+function doCalculation() {
+  var calResult;
+  calResult = eval(x);
+  document.getElementById("result").value =
+    calResult;
+}
+</script>
+
+</body>
