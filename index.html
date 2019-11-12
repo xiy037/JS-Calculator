@@ -1,60 +1,10 @@
+<!DOCTYPE html>
 <html>
 <head>
-  <title>My Calculator Practice</title>
-  <style>
-    *{
-    font-size: 20px;
-    color: white;
-     }
-
-    div{
-      display: block;
-      margin: 50px auto;
-      width: 400px;
-      height: 600px;
-      border: 1px solid black;
-   }
-
-table {
-  table-layout:fixed;
-  width: 100%;
-  border-collapse:collapse;
-  height: 100%;
-}
-
-th, td{
-  padding: 0px; 
-}
-
-.button1{
-  background-color: orange;
-  width: 100%;
-  height: 100%;
-} 
-
-.button2{
-  background-color: rgb(138, 134, 134);
-  width: 100%;
-  height: 100%;
-}
-
-.button3{
-  background-color: rgb(176, 172, 172);
-  width: 100%;
-  height: 100%;
-}
-
-
-#result{
-  text-align:right;
-  height:50px;
-  width:100%;
-  height: 100%;
-  background-color: rgb(74, 71, 71);
-  box-sizing: border-box;
-}
-  </style>
+        <title>myCalculator Practice v2</title>
+        <link rel="stylesheet" type="text/css" href="Calculator.css">
 </head>
+</html>
 
 <body>
   <div>
@@ -66,63 +16,33 @@ th, td{
       <td><input type="button" value="AC" class="button2" onclick="clr()"></td>
       <td><input type="button" value="+/-" class="button2" onclick="doMathAbs()"></td>
       <td><input type="button" value="%" class="button2" onclick="doMathPercent()"></td>
-      <td><input type="button" value=&divide class="button1" onclick="inputItem('/')"></td>
+      <td><input type="button" value=&divide class="button1" onclick="inputOperator('/')"></td>
     </tr> 
     <tr>
       <td><input type="button" value="7" class="button3" onclick="inputItem(7)"></td>
-      <td><input type="button" value="8" class="button3" onclick="inputItem('8')"></td>
-      <td><input type="button" value="9" class="button3" onclick="inputItem('9')"></td>
-      <td><input type="button" value="&times" class="button1" onclick= "inputItem('*')"></td>
+      <td><input type="button" value="8" class="button3" onclick="inputItem(8)"></td>
+      <td><input type="button" value="9" class="button3" onclick="inputItem(9)"></td>
+      <td><input type="button" value="&times" class="button1" onclick= "inputOperator('*')"></td>
     </tr>
     <tr>
-      <td><input type="button" value="4" class="button3" onclick="inputItem('4')"></td>
-      <td><input type="button" value="5" class="button3" onclick="inputItem('5')"></td>
-      <td><input type="button" value="6" class="button3" onclick="inputItem('6')"></td>
-      <td><input type="button" value="-" class="button1" onclick="inputItem('-')"></td>
+      <td><input type="button" value="4" class="button3" onclick="inputItem(4)"></td>
+      <td><input type="button" value="5" class="button3" onclick="inputItem(5)"></td>
+      <td><input type="button" value="6" class="button3" onclick="inputItem(6)"></td>
+      <td><input type="button" value="-" class="button1" onclick="inputOperator('-')"></td>
     </tr>
     <tr>
-       <td><input type="button" value="1" class="button3" onclick="inputItem('1')"></td>
-      <td><input type="button" value="2" class="button3" onclick="inputItem('2')"></td>
-      <td><input type="button" value="3" class="button3" onclick="inputItem('3')"></td>
-      <td><input type="button" value="+" class="button1" onclick="inputItem('+')"></td>
+       <td><input type="button" value="1" class="button3" onclick="inputItem(1)"></td>
+      <td><input type="button" value="2" class="button3" onclick="inputItem(2)"></td>
+      <td><input type="button" value="3" class="button3" onclick="inputItem(3)"></td>
+      <td><input type="button" value="+" class="button1" onclick="inputOperator('+')"></td>
     </tr>
     <tr>
       <td colspan="2"><input type="button" value="0" class="button3" onclick="inputItem('0')"></td>
-      <td><input type="button" value="." class="button3" onclick="inputItem('.')"></td>
+      <td><input type="button" value="." class="button3" onclick="inputOperator('.')"></td>
       <td><input type="button" value="=" class="button1" onclick=
                  "doCalculation()"></td>
     </tr>
     </table>
   </div>
+ <script src= "Calculator2.js"></script> 
 </body>
-
-<script>
-function clr(){
-   document.getElementById("result").value=null
-}
-
-var x;
-function inputItem(myVal){
- x = document.getElementById("result").value+=myVal
-}
-
-function doMathAbs(){
-  x = -1*x
-  document.getElementById("result").value = x
-}
-
-function doMathPercent(){
-  x = x/100
-  document.getElementById("result").value = x
-}
-
-function doCalculation() {
-  var calResult;
-  calResult = eval(x);
-  document.getElementById("result").value =
-    calResult;
-}
-</script>
-
-</body>
-</html>
