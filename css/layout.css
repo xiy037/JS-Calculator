@@ -14,10 +14,10 @@ div{
     height: 100px;
     float: left;
 }
-.orange-button{
+.orange-button {
     background-color: orange;
 } 
-.grey-button{
+.grey-button {
     background-color: rgb(138, 134, 134);
 }
 .number-button{

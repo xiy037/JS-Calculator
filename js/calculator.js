@@ -7,25 +7,19 @@ function clr() {
     tempString = "";
 }
 function display(clickVal) {
-    var pos, lastValue;
-    pos = tempString.length -1;
-    lastValue = tempString.substr(pos);
-    if (clickVal == '+' || clickVal == '-' || clickVal == '*' || clickVal == '/') {
-        switch(lastValue) {
-            case "": case '1': case '2':  case '3': case '4': case '5': case '6': 
-            case '7': case '8': case '9': case '0':
-                tempString +=clickVal;
-                break; 
-            default: 
-                return tempString;
-        }
-    }else if(tempString == calResult) {
+    var operatorCheck = '+-*/.';
+    var pos = tempString.length -1;
+    var lastValue = tempString.substr(pos);
+    var checkClickVal = operatorCheck.indexOf(clickVal);
+    var checkLastValue = operatorCheck.indexOf(lastValue);
+    if ((checkClickVal !== -1) && (checkLastValue !== -1)) {
+        return tempString;
+    } else if ((checkClickVal == -1)&& (tempString == calResult)) {
         tempString = '';
         tempString +=clickVal;
-    }
-    else{
+    } else {
         tempString +=clickVal;
-    }
+    } 
     result.value = tempString;
     if ((lastValue == '/') && (clickVal == '0')) {
         result.value = "Error";
