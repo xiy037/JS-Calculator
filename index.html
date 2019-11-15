@@ -5,32 +5,31 @@
 </head>
 
 <body>
-  <div>
-      <input type="text" id="result"><br>
-      <input type="button" value="AC" class="grey-button" onclick="clr()">
+      <div><input type="text" class="result"></div>
+      <div><input type="button" value="AC" class="grey-button" onclick="clr()">
       <input type="button" value="+/-" class="grey-button" onclick="opposite()">
       <input type="button" value="%" class="grey-button" onclick="percent()">
-      <input type="button" value=&divide class="orange-button" onclick="display('/')"><br>
+      <input type="button" value=&divide class="orange-button" onclick="buttonOperator('/')"></div>
 
-      <input type="button" value="7" class="number-button" onclick="display(7)">
-      <input type="button" value="8" class="number-button" onclick="display(8)">
-      <input type="button" value="9" class="number-button" onclick="display(9)">
-      <input type="button" value="&times" class="orange-button" onclick= "display('*')"><br>
+      <div><input type="button" value="7" class="number-button" onclick="buttonNumber(7)">
+      <input type="button" value="8" class="number-button" onclick="buttonNumber(8)">
+      <input type="button" value="9" class="number-button" onclick="buttonNumber(9)">
+      <input type="button" value="&times" class="orange-button" onclick= "buttonOperator('*')"></div>
    
-      <input type="button" value="4" class="number-button" onclick="display(4)">
-      <input type="button" value="5" class="number-button" onclick="display(5)">
-      <input type="button" value="6" class="number-button" onclick="display(6)">
-      <input type="button" value="-" class="orange-button" onclick="display('-')"><br>
+      <div><input type="button" value="4" class="number-button" onclick="buttonNumber(4)">
+      <input type="button" value="5" class="number-button" onclick="buttonNumber(5)">
+      <input type="button" value="6" class="number-button" onclick="buttonNumber(6)">
+      <input type="button" value="-" class="orange-button" onclick="buttonOperator('-')"></div>
   
-      <input type="button" value="1" class="number-button" onclick="display(1)">
-      <input type="button" value="2" class="number-button" onclick="display(2)">
-      <input type="button" value="3" class="number-button" onclick="display(3)">
-      <input type="button" value="+" class="orange-button" onclick="display('+')"><br>
+      <div><input type="button" value="1" class="number-button" onclick="buttonNumber(1)">
+      <input type="button" value="2" class="number-button" onclick="buttonNumber(2)">
+      <input type="button" value="3" class="number-button" onclick="buttonNumber(3)">
+      <input type="button" value="+" class="orange-button" onclick="buttonOperator('+')"></div>
     
-      <input type="button" value="0" class="button-zero" onclick="display(0)">
-      <input type="button" value="." class="number-button" onclick="display('.')">
-      <input type="button" value="=" class="orange-button" onclick="calculate()"> 
-  </div>
+      <div><input type="button" value="0" class="button-zero" onclick="buttonNumber(0)">
+      <input type="button" value="." class="number-button" onclick="buttonOperator('.')">
+      <input type="button" value="=" class="orange-button" onclick="calculate()"></div> 
+
   <script type="text/javascript" src= "js/calculator.js"></script>  
 </body>
 

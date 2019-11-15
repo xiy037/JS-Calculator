@@ -3,11 +3,9 @@
     color: white;
 }
 div{
-    display: block;
-    margin: 50px auto;
+    margin: 0px auto;
     width: 400px;
-    height: 600px;
-    border: 1px solid black;
+    height: 100px;
     }
 .orange-button, .grey-button, .number-button{
     width: 100px;
@@ -29,7 +27,7 @@ div{
     height: 100px;
     float: left;
 }
-#result{
+.result{
     text-align:right;
     width: 400px;
     height: 100px;
