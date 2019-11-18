@@ -1,58 +1,45 @@
 var result = document.getElementsByClassName("result")[0];
 var calResult = "";
-var tempString = "";
+var displayString = "";
 
-function clr() {
-    result.value="";
-    calResult= "";
-    tempString = "";
+function clearDisplay() {
+    result.value = "";
+    calResult = "";
+    displayString = "";
 }
-function buttonNumber(btnVal) {
-    var position = tempString.length -1;
-    var lastValue = tempString.substr(position);
-    //下一次轮输入数字时清空上一轮结果。
-    if ((tempString == calResult) && (calResult !== "")) {
-        tempString = "";
-        tempString += btnVal;
-    } else if ((lastValue == '/') && (btnVal == '0')) {
-    //被除数不能为零。
-        tempString += btnVal;
-        calResult = "Error";
+function handleNumBtn(btnVal) {
+    if ((displayString == calResult) && (calResult !== "")) {
+        displayString = "";
     }
-    else {
-        tempString += btnVal;
-    }
-    result.value = tempString;  
+    displayString += btnVal;
+    display();
 }
-function buttonOperator(btnVal) {   
-    var position = tempString.length -1;
-    var lastValue = tempString.substr(position);
-    var operatorCheck = "+-*/.";
-    var checkLastValue = operatorCheck.indexOf(lastValue);
-    //不连续输入两个运算符。
-    if (checkLastValue !== -1) {
-        return tempString;
-    } else {
-        tempString += btnVal;
+function handleOperatorBtn(btnVal) {
+    var lastChar = displayString.charAt(displayString.length - 1);
+    if (!["+", "-", "*"].includes(lastChar)) {
+        displayString += btnVal;
+        display();
     }
-    result.value = tempString;
+}
+function display() {
+    result.value = displayString;
 }
 function opposite() {
-    tempString = -1*tempString + '';
-    calResult = tempString;
-    result.value = tempString;
+    displayString = -1 * displayString + '';
+    display();
 }
+
 function percent() {
-    tempString = tempString/100 + '';
-    calResult = tempString;
-    result.value = tempString;
+    displayString = displayString / 100 + '';
+    display();
 }
 function calculate() {
-    if (calResult !== "Error") {
-        calResult = eval(tempString);
-        result.value = Math.round(calResult*1e10)/1e10;
-    } else {
+    if (displayString.includes("/0")) {
+        calResult = "Error";
         result.value = calResult;
-    }  
-    tempString = calResult + '';
+    } else {
+        calResult = eval(displayString);
+        result.value = Math.round(calResult * 1e10) / 1e10;
+    }
+    displayString = calResult + "";
 }
